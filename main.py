@@ -35,6 +35,16 @@ with open('json/alliedCompanies.json') as companies_file:
 
 # Extract the companies from the data
 allied_companies = companies_data.get('companies', [])
+# even more json stuff
+def is_admin(name):
+    with open('json/memberRanks.json') as file:
+        data = json.load(file)
+
+    for member_id, member_info in data.items():
+        if member_info['name'] == name:
+             return True
+    return False
+
 # variables
 admin = False
 running_command = False
@@ -64,7 +74,7 @@ def process_action(number):
         print("replit.com/@lizardlock1223")
     elif number == "6":
         print("")
-    elif number == "7" and admin == True:
+    elif number == "7" and admin:
         chosen = random.randint(1, 3)
         if chosen == 1:
             print("chosen 1")
@@ -77,7 +87,7 @@ print("Welcome To The Ohio Airlines Python Website")
 print("This Python Website Is Made By Lizard Rush (Edgar)")
 # name login
 name = input("What is your name: ")
-if name in ["Edgar", "Nixon", "Sebastian", "Cecelia"]:
+if is_admin(name):
     userinputpin = input("It seems like you are signing in with the name of an admin, enter your admin access pin: ")
     if userinputpin == os.getenv("ADMIN_PIN"):
          admin = True
@@ -96,9 +106,8 @@ while True:
 		print("5: open lizard rush's replit account (lizardlock1223)")
 		print("6: open lizard rush's github account")
 		print("ohio airlines")
-		print("7: minigame randomizer")
 		if admin:
 			print("admin commands")
-			print("8: view sign ups")
+			print("7: minigame randomizer")
 		userinput = input("Input the number of the action: ")
 		process_action(userinput)
