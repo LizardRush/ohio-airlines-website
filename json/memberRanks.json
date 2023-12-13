@@ -1,0 +1,26 @@
+{
+	"15463135": {
+		"name": "Nixon",
+		"admin": true,
+		"rankID": 1
+	},
+	"22456323": {
+		"name": "Sebastian",
+		"admin": true,
+		"rankID": 2
+	},
+	"34356734": {"name": "Cecelia",
+		"admin": true,
+		"rankID": 3
+	},
+	"34223567": {
+		"name": "Edgar",
+		"admin": true,
+		"rankID": 4
+	},
+	"55455765": {
+		"name": "Kushal",
+		"admin": true,
+		"rankID": 5
+	}
+}
