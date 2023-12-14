@@ -14,7 +14,6 @@ rank_roles = {
     7: "Head of Security",
     8: "Security"
 }
-
 # Read the JSON file
 with open('json/memberRanks.json') as file:
     data = json.load(file)
@@ -77,7 +76,11 @@ def process_action(number):
     elif number == "7" and admin:
         chosen = random.randint(1, 3)
         if chosen == 1:
-            print("chosen 1")
+            print("Windy Bee has chosen 1")
+        elif chosen == 2:
+            print("Windy Bee has chosen 2")
+        elif chosen ==3:
+            print("Windy Bee has chosen 3")
     else:
         print("Command Is Not Defined")
     running_command = False
@@ -88,26 +91,30 @@ print("This Python Website Is Made By Lizard Rush (Edgar)")
 # name login
 name = input("What is your name: ")
 if is_admin(name):
-    userinputpin = input("It seems like you are signing in with the name of an admin, enter your admin access pin: ")
+    userinputpin = input(f"Welcome Back {name}, enter your admin access pin: ")
     if userinputpin == os.getenv("ADMIN_PIN"):
          admin = True
+         print(f"Welcome {name}!")
 
 while True:
-	if not running_command:
-		input("press enter/return to continue")
-		os.system("clear")
-		print("action pane for", name)
-		print("ohio airlines info")
-		print("1: view roles with members")
-		print("2: view description")
-		print("3: view allied companies")
-		print("this python code you're on right now")
-		print("4: open GitHub Repository")
-		print("5: open lizard rush's replit account (lizardlock1223)")
-		print("6: open lizard rush's github account")
-		print("ohio airlines")
-		if admin:
-			print("admin commands")
-			print("7: minigame randomizer")
-		userinput = input("Input the number of the action: ")
-		process_action(userinput)
+    if not running_command:
+        input("press enter/return to continue")
+        os.system("clear")
+        if admin:
+            print(f"Admin action pane for the epic {name}")
+        else:
+            print(f"action pane for {name}")
+        print("ohio airlines info")
+        print("1: view roles with members")
+        print("2: view description")
+        print("3: view allied companies")
+        print("this python code you're on right now")
+        print("4: open GitHub Repository")
+        print("5: open lizard rush's replit account (lizardlock1223)")
+        print("6: open lizard rush's github account")
+        print("ohio airlines")
+        if admin:
+            print("admin commands")
+            print("7: minigame randomizer")
+        userinput = input("Input the number of the action: ")
+        process_action(userinput)
